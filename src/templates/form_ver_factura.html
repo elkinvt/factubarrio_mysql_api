@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Consultar Facturas por Fecha</h2>
+    <input type="date" id="fechaConsulta" class="form-control mb-3 form-control-sm">
+    <button class="btn btn-primary form-control-sm" onclick="buscarFacturasPorFecha()">Buscar Facturas</button>
+    <table class="table table-striped mt-3 fo">
+        <thead>
+            <tr>
+                <th>ID Factura</th>
+                <th>Fecha</th>
+                <th>Cliente</th> <!-- Encabezado para el nombre del cliente -->
+                <th>Total</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+
+        <tbody id="listaFacturas">
+            <!-- Las facturas filtradas se mostrarán aquí -->
+        </tbody>
+    </table>
+</div>
+<!-- Modal para mostrar detalles de factura -->
+<div class="modal fade" id="facturaModal" tabindex="-1" aria-labelledby="facturaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="facturaModalLabel">Detalles de Factura</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Los detalles de la factura se cargarán aquí -->
+                <div id="detalleFacturaContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/facturas/ver_factura.js') }}"></script>
+
+{% endblock %}
+   
