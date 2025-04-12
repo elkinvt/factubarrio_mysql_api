@@ -5,7 +5,7 @@ from sqlalchemy.inspection import inspect
 import json
 
 # Creación del motor de la base de datos para conectarse con PostgreSQL
-engine = create_engine("postgresql+psycopg2://postgres:KDOSQZTR024@localhost/factu_barrio_6")
+engine = create_engine("mysql+pymysql://root:@localhost/factubarrio_mysql")
 
 # Declarative base: esto será usado más adelante para definir los modelos
 Base = declarative_base()
